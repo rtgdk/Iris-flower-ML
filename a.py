@@ -18,29 +18,29 @@ url = "iris.data"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = pandas.read_csv(url, names=names)
 
-# # shape
-# print(dataset.shape)
+# shape
+print(dataset.shape)
 
-# # head
-# print(dataset.head(20))
+# head
+print(dataset.head(20))
 
-# # descriptions
-# print(dataset.describe())
+# descriptions
+print(dataset.describe())
 
-# # class distribution
-# print(dataset.groupby('class').size())
+# class distribution
+print(dataset.groupby('class').size())
 
-# # box and whisker plots
-# dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
-# plt.show()
+# box and whisker plots
+dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
+plt.show()
 
-# # histograms
-# dataset.hist()
-# plt.show()
+# histograms
+dataset.hist()
+plt.show()
 
-# # scatter plot matrix
-# scatter_matrix(dataset)
-# plt.show()
+# scatter plot matrix
+scatter_matrix(dataset)
+plt.show()
 
 # Split-out validation dataset
 array = dataset.values
@@ -73,13 +73,13 @@ for name, model in models:
 	msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
 	#print(msg)
 
-# # Compare Algorithms
-# fig = plt.figure()
-# fig.suptitle('Algorithm Comparison')
-# ax = fig.add_subplot(111)
-# plt.boxplot(results)
-# ax.set_xticklabels(names)
-# plt.show()
+# Compare Algorithms
+fig = plt.figure()
+fig.suptitle('Algorithm Comparison')
+ax = fig.add_subplot(111)
+plt.boxplot(results)
+ax.set_xticklabels(names)
+plt.show()
 
 # Make predictions on validation dataset
 knn = KNeighborsClassifier()
